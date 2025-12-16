@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function type() {
         const currentText = textArray[textIndex];
-        
+
         if (isDeleting) {
             typeWriterElement.textContent = currentText.substring(0, charIndex - 1);
             charIndex--;
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Start Typing
-    if(typeWriterElement) {
+    if (typeWriterElement) {
         type();
     }
 
@@ -83,4 +83,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     `;
     document.head.appendChild(styleSheet);
+
+    // Reset contact form on back navigation
+    window.addEventListener('pageshow', (event) => {
+        const form = document.querySelector('.contact-form');
+        if (form && (event.persisted || (performance.getEntriesByType && performance.getEntriesByType("navigation")[0].type === 'back_forward'))) {
+            form.reset();
+        }
+    });
 });
