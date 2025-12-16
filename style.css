@@ -598,6 +598,17 @@ ul {
     transform: translateY(-3px);
 }
 
+.custom-icon {
+    width: 20px;
+    height: 20px;
+    fill: var(--text-color);
+    transition: fill 0.3s;
+}
+
+.social-links a:hover .custom-icon {
+    fill: #fff;
+}
+
 .form-group {
     margin-bottom: 1.5rem;
 }
